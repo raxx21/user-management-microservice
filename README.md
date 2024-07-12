@@ -15,6 +15,7 @@ This project is a user management and blocking microservice built using NestJS. 
 - [Testing](#testing)
 - [Error Handling](#error-handling)
 - [Middleware](#middleware)
+- [Token Generator](#tokengenerator)
 
 ## Features
 
@@ -123,3 +124,23 @@ npm run test:cov
 ## Middleware
 
 The `ExtractUserMiddleware` is used to extract the user ID from JWT tokens for authenticated routes.
+
+## Token Generator
+
+This is the script to generate the token to use.
+
+```sh
+const jwt = require('jsonwebtoken');
+
+const payload = { sub: '668f79869183db8f39f0b861' };
+const secretKey = 'your_secret_key';
+
+const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
+console.log(token);
+```
+
+To run the script use:
+
+```sh
+node file_name.js
+```
